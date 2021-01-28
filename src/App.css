@@ -1,38 +1,43 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1,
+p {
+  font-family: Lato;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  width: 300px;
 }
 
-.App-link {
-  color: #61dafb;
+.no-reposlist {
+  color: #999;
+  padding: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.reposlist {
+  color: rgba(12, 11, 11, 0.877);
+  padding: 0.5rem;
+}
+
+.reposlist li {
+  padding: 0.5rem;
+}
+
+.repo-active,
+.reposlist li:hover {
+  background-color: #ae7192;
+  color: #f5f8f8;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.reposlist li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
 }
