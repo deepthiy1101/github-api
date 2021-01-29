@@ -14,7 +14,7 @@ class AutoSearchFieldComponent extends Component {
     super(props);
 
     this.state = {
-      currentRepos: 0,
+      currentRepos: null,
       // The repositories that match the user's input
       filteredRepositories: [],
       // Whether or not the repository list is shown
@@ -38,7 +38,7 @@ class AutoSearchFieldComponent extends Component {
     );
 
     this.setState({
-      currentRepos: 0,
+      currentRepos: null,
       filteredRepositories,
       showRepositories: true,
       userInput: e.currentTarget.value,
@@ -47,7 +47,7 @@ class AutoSearchFieldComponent extends Component {
 
   onClick = (e) => {
     this.setState({
-      currentRepos: 0,
+      currentRepos: null,
       filteredRepositories: [],
       showRepositories: false,
       userInput: e.currentTarget.innerText,
@@ -71,24 +71,24 @@ class AutoSearchFieldComponent extends Component {
     else if (e.keyCode === 38) {
       if (currentRepos === 0) {
         return;
+      } else {
+        this.setState({ currentRepos: currentRepos - 1 });
       }
-
-      this.setState({ currentRepos: currentRepos - 1 });
     }
     // User pressed the down arrow
     else if (e.keyCode === 40) {
       if (currentRepos - 1 === filteredRepositories.length) {
         return;
+      } else {
+        this.setState({ currentRepos: currentRepos + 1 });
       }
-
-      this.setState({ currentRepos: currentRepos + 1 });
     }
   };
 
   onBlur = (e) => {
     if (this.state.userSelection === "") {
       this.setState({
-        currentRepos: 0,
+        currentRepos: null,
         filteredRepositories: [],
         showRepositories: false,
         userInput: "",
@@ -126,9 +126,9 @@ class AutoSearchFieldComponent extends Component {
 
               return (
                 <li className={className} key={repo.name} onClick={onClick}>
-                  {"User Name - " +
+                  {"Username: " +
                     repo.owner.login +
-                    ", Repository - " +
+                    "; Repository: " +
                     repo.name}
                 </li>
               );

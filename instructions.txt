@@ -1,0 +1,2 @@
+- Please paste any OAuth, GithubApp or Personal Access token of an account that holds some repositories into the constants file before running the application.
+- Search for a username of the account that holds the token.
